@@ -2,9 +2,7 @@ pipeline {
     options {
         timeout(time: 1, unit: 'HOURS')
     }
-    agent {
-        any
-    }
+    agent any
     stages {
         stage('build') {
             when {
