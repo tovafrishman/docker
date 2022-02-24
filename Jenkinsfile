@@ -15,12 +15,11 @@ pipeline {
         stage('Login') {
 
 			steps {
-				sh 'echo 043399351 | docker login -u tovafrishman@gmail.com --password-stdin'
+				sh "echo 043399351 | docker login -u tovafrishman@gmail.com --password-stdin"
 			}
 		}
         stage('push'){
-            steps {
-                withDockerRegistry([url: "", credentialsId: "dockerbuildbot-index.docker.io"]) {
+		steps {
                     sh("docker push docker/getting-started")
                 }
             }
